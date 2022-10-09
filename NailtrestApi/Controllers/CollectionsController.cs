@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using NailtrestApi.Data;
 using NailtrestApi.Data.Dtos.Collections;
 using NailtrestApi.Data.Entities;
 using NailtrestApi.Data.Repositories;
+using System.Text.Json;
 
 namespace NailtrestApi.Controllers
 {
@@ -16,10 +18,39 @@ namespace NailtrestApi.Controllers
            _collectionRepository = collectionRepository;
         }
 
-        [HttpGet]
+     //  [HttpGet]
         public async Task<IEnumerable<CollectionDto>> GetMany()
         {
             var collections = await _collectionRepository.GetManyAsync();
+            return collections.Select(d => new CollectionDto(d.Id, d.Name, d.Description, d.CreatedDate));
+        }
+
+        // /collections/pages?pageNumber=1&pageSize=5
+        [HttpGet(Name = "GetCollections")]
+        public async Task<IEnumerable<CollectionDto>> GetManyPages([FromQuery] CollectionsParameters parameters)
+        {
+            var collections = await _collectionRepository.GetManyAsync(parameters);
+
+            var previousPageLink = collections.HasPrevious ?
+            CreateCollectionsResourceUri(parameters,
+                ResourceUriType.PreviousPage) : null;
+
+            var nextPageLink = collections.HasNext ?
+                CreateCollectionsResourceUri(parameters,
+                    ResourceUriType.NextPage) : null;
+
+            var paginationMetadata = new
+            {
+                totalCount = collections.TotalCount,
+                pageSize = collections.PageSize,
+                currentPage = collections.CurrentPage,
+                totalPages = collections.TotalPages,
+                previousPageLink,
+                nextPageLink
+            };
+
+            Response.Headers.Add("Pagination", JsonSerializer.Serialize(paginationMetadata));
+
             return collections.Select(d => new CollectionDto(d.Id, d.Name, d.Description, d.CreatedDate));
         }
 
@@ -88,6 +119,33 @@ namespace NailtrestApi.Controllers
 
             //204
             return NoContent();
+        }
+
+        private string? CreateCollectionsResourceUri(
+       CollectionsParameters parameters,
+       ResourceUriType type)
+        {
+            return type switch
+            {
+                ResourceUriType.PreviousPage => Url.Link("GetCollections",
+                    new
+                    {
+                        pageNumber = parameters.PageNumber - 1,
+                        pageSize = parameters.PageSize,
+                    }),
+                ResourceUriType.NextPage => Url.Link("GetCollections",
+                    new
+                    {
+                        pageNumber = parameters.PageNumber + 1,
+                        pageSize = parameters.PageSize,
+                    }),
+                _ => Url.Link("GetCollections",
+                    new
+                    {
+                        pageNumber = parameters.PageNumber,
+                        pageSize = parameters.PageSize,
+                    })
+            };
         }
     }
 }
