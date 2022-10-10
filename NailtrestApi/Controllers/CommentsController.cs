@@ -6,7 +6,7 @@ using NailtrestApi.Data.Repositories;
 namespace NailtrestApi.Controllers
 {
     [ApiController]
-    [Route("api/collections/{collectionId}/ideas/{ideaId}/comments")]
+    [Route("api/ideas/{ideaId}/comments")]
     public class CommentsController : ControllerBase
     {
         private readonly IIdeasRepository _ideasRepository;
@@ -32,9 +32,9 @@ namespace NailtrestApi.Controllers
 
         [HttpGet]
         [Route("{commentId}")]
-        public async Task<ActionResult<CommentDto>> Get(int collectionId, int ideaId, int commentId)
+        public async Task<ActionResult<CommentDto>> Get(int ideaId, int commentId)
         {
-            if (!(await CollectionAndIdeaAndCommentExists(collectionId, ideaId, commentId)))
+            if (!(await CollectionAndIdeaAndCommentExists(ideaId, commentId)))
             {
                 return NotFound(); //404
             }
@@ -46,14 +46,9 @@ namespace NailtrestApi.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<CommentDto>> Create(int collectionId, int ideaId, CreateCommentDto createCommentDto)
+        public async Task<ActionResult<CommentDto>> Create(int ideaId, CreateCommentDto createCommentDto)
         {
-            var collection = await _collectionRepository.GetAsync(collectionId);
-            if (collection == null)
-            {
-                return NotFound();
-            }
-
+            
             var idea = await _ideasRepository.GetAsync(ideaId);
             if (idea == null)
             {
@@ -76,9 +71,9 @@ namespace NailtrestApi.Controllers
 
         [HttpPut]
         [Route("{commentId}")]
-        public async Task<ActionResult<CommentDto>> Update(int collectionId, int ideaId, int commentId, UpdateCommentDto updateCommentDto)
+        public async Task<ActionResult<CommentDto>> Update(int ideaId, int commentId, UpdateCommentDto updateCommentDto)
         {
-            if (!(await CollectionAndIdeaAndCommentExists(collectionId, ideaId, commentId)))
+            if (!(await CollectionAndIdeaAndCommentExists(ideaId, commentId)))
             {
                 return NotFound(); //404
             }
@@ -94,9 +89,9 @@ namespace NailtrestApi.Controllers
 
         [HttpDelete]
         [Route("{commentId}")]
-        public async Task<ActionResult> Remove(int collectionId, int ideaId, int commentId)
+        public async Task<ActionResult> Remove( int ideaId, int commentId)
         {
-            if (!(await CollectionAndIdeaAndCommentExists(collectionId, ideaId, commentId)))
+            if (!(await CollectionAndIdeaAndCommentExists(ideaId, commentId)))
             {
                 return NotFound(); //404
             }
@@ -109,15 +104,9 @@ namespace NailtrestApi.Controllers
             return NoContent();
         }
 
-        private async Task<bool> CollectionAndIdeaAndCommentExists(int collectionId, int ideaId, int commentId)
+        private async Task<bool> CollectionAndIdeaAndCommentExists(int ideaId, int commentId)
         {
-            var collection = await _collectionRepository.GetAsync(collectionId);
-
-            if (collection == null)
-            {
-                return false; //404
-            }
-
+           
             var idea = await _ideasRepository.GetAsync(ideaId);
 
             if (idea == null)

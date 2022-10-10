@@ -8,6 +8,9 @@ namespace NailtrestApi.Data.Repositories
         Task DeleteAsync(Idea idea);
         Task<Idea?> GetAsync(int ideaId);
         Task<IReadOnlyList<Idea>> GetManyAsync(int collectionId);
+
+        Task<IReadOnlyList<Idea>> GetAllAsync();
+
         Task UpdateAsync(Idea idea);
     }
 }

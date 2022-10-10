@@ -35,5 +35,9 @@ namespace NailtrestApi.Data.Repositories
             _nailtrestDbContext.Ideas.Update(idea);
             await _nailtrestDbContext.SaveChangesAsync();
         }
+
+        public async Task<IReadOnlyList<Idea>> GetAllAsync() =>
+              await _nailtrestDbContext.Ideas.ToListAsync();
+
     }
 }

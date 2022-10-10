@@ -96,8 +96,8 @@ namespace NailtrestApi.Controllers
                 return NotFound(); //404
             }
 
-            collection.Name = updateCollectionDto.Name;
-            collection.Description = updateCollectionDto.Description;
+            collection.Name = updateCollectionDto.Name is null ? collection.Name : updateCollectionDto.Name;
+            collection.Description = updateCollectionDto.Description is null ? collection.Description : updateCollectionDto.Description;
             await _collectionRepository.UpdateAsync(collection);
 
             return Ok(new CollectionDto(collection.Id, collection.Name, collection.Description, collection.CreatedDate));

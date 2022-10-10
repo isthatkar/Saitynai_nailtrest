@@ -38,7 +38,6 @@ namespace NailtrestApi.Controllers
             var idea = await _ideasRepository.GetAsync(ideaId);
 
             return GetIdeaDto(idea!);
-
         }
 
         [HttpPost]
@@ -81,13 +80,13 @@ namespace NailtrestApi.Controllers
 
             var idea = await _ideasRepository.GetAsync(ideaId);
 
-            idea!.Name = updateIdeaDto.Name;
-            idea.Description = updateIdeaDto.Description;
-            idea.RequiredMeans = updateIdeaDto.RequiredMeans;
-            idea.Instruction = updateIdeaDto.Instruction;
-            idea.Complexity = updateIdeaDto.Complexity;
-            idea.ImageUrl = updateIdeaDto.ImageUrl;
-  
+            idea!.Name = updateIdeaDto.Name is null ? idea!.Name : updateIdeaDto.Name;
+            idea.Description = updateIdeaDto.Description is null ? idea!.Description : updateIdeaDto.Description;
+            idea.RequiredMeans = updateIdeaDto.RequiredMeans is null ? idea!.RequiredMeans : updateIdeaDto.RequiredMeans;
+            idea.Instruction = updateIdeaDto.Instruction is null ? idea!.Instruction : updateIdeaDto.Instruction;
+            idea.Complexity = updateIdeaDto.Complexity is null ? idea!.Complexity : updateIdeaDto.Complexity;
+            idea.ImageUrl = updateIdeaDto.ImageUrl is null ? idea!.ImageUrl : updateIdeaDto.ImageUrl;
+
             await _ideasRepository.UpdateAsync(idea);
 
             return Ok(GetIdeaDto(idea));
