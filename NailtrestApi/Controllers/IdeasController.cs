@@ -49,6 +49,14 @@ namespace NailtrestApi.Controllers
                 return NotFound();
             }
 
+            if (createIdeaDto.ImageUrl != null)
+            {
+                if (!Uri.IsWellFormedUriString(createIdeaDto.ImageUrl, UriKind.Absolute))
+                {
+                    return BadRequest("Image URL is not valid! >:(");
+                }
+            }
+
             var idea = new Idea
             {
                 Name = createIdeaDto.Name,
@@ -80,6 +88,13 @@ namespace NailtrestApi.Controllers
 
             var idea = await _ideasRepository.GetAsync(ideaId);
 
+            if(updateIdeaDto!.ImageUrl != null)
+            {
+                if (!Uri.IsWellFormedUriString(updateIdeaDto.ImageUrl, UriKind.Absolute))
+                {
+                    return BadRequest("Image URL is not valid! >:(");
+                }
+            }
             idea!.Name = updateIdeaDto.Name is null ? idea!.Name : updateIdeaDto.Name;
             idea.Description = updateIdeaDto.Description is null ? idea!.Description : updateIdeaDto.Description;
             idea.RequiredMeans = updateIdeaDto.RequiredMeans is null ? idea!.RequiredMeans : updateIdeaDto.RequiredMeans;
