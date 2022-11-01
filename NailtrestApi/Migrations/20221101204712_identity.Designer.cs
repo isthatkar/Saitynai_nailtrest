@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NailtrestApi.Data;
 
@@ -11,9 +12,10 @@ using NailtrestApi.Data;
 namespace NailtrestApi.Migrations
 {
     [DbContext(typeof(NailtrestDbContext))]
-    partial class NailtrestDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221101204712_identity")]
+    partial class identity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

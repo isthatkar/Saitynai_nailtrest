@@ -1,21 +1,30 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.JsonWebTokens;
+using NailtrestApi.Auth.Model;
 using NailtrestApi.Data.Dtos.Ideas;
 using NailtrestApi.Data.Entities;
 using NailtrestApi.Data.Repositories;
+using System.Data;
+using System.Security.Claims;
 
 namespace NailtrestApi.Controllers
 {
     [ApiController]
+    [Authorize(Roles = ForumRoles.User)]
     [Route("api/collections/{collectionId}/ideas")]
     public class IdeasController : ControllerBase
     {
         private readonly IIdeasRepository _ideasRepository;
+        private readonly IAuthorizationService _authorizationService;
         private readonly ICollectionsRepository _collectionRepository;
 
         public IdeasController(IIdeasRepository ideasRepository, 
-            ICollectionsRepository collectionsRepository)
+            ICollectionsRepository collectionsRepository,
+            IAuthorizationService authorizationService)
         {
             _ideasRepository = ideasRepository;
+            _authorizationService = authorizationService;
             _collectionRepository = collectionsRepository;
         }
 
@@ -67,7 +76,8 @@ namespace NailtrestApi.Controllers
                 RequiredMeans = createIdeaDto.RequiredMeans,
                 Instruction = createIdeaDto.Instruction,
                 IsVerified = false,
-                Collection = collection
+                Collection = collection,
+                UserId = User.FindFirstValue(JwtRegisteredClaimNames.Sub)
             };
 
             await _ideasRepository.CreateAsync(idea);
@@ -95,6 +105,14 @@ namespace NailtrestApi.Controllers
                     return BadRequest("Image URL is not valid! >:(");
                 }
             }
+
+            var authResult = await _authorizationService.AuthorizeAsync(User, idea, PolicyNames.ResourceOwner);
+
+            if (!authResult.Succeeded)
+            {
+                return Forbid(); //403
+            }
+
             idea!.Name = updateIdeaDto.Name is null ? idea!.Name : updateIdeaDto.Name;
             idea.Description = updateIdeaDto.Description is null ? idea!.Description : updateIdeaDto.Description;
             idea.RequiredMeans = updateIdeaDto.RequiredMeans is null ? idea!.RequiredMeans : updateIdeaDto.RequiredMeans;
@@ -117,6 +135,13 @@ namespace NailtrestApi.Controllers
             }
 
             var idea = await _ideasRepository.GetAsync(ideaId);
+
+            var authResult = await _authorizationService.AuthorizeAsync(User, idea, PolicyNames.ResourceOwner);
+
+            if (!authResult.Succeeded)
+            {
+                return Forbid(); //403
+            }
 
             await _ideasRepository.DeleteAsync(idea!);
 

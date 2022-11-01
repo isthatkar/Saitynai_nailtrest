@@ -1,9 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+using NailtrestApi.Auth.Model;
 using NailtrestApi.Data.Entities;
 
 namespace NailtrestApi.Data
 {
-    public class NailtrestDbContext : DbContext
+    public class NailtrestDbContext : IdentityDbContext<ForumRestUser>
     {
         public DbSet<Collection> Collections { get; set; }
         public DbSet<Idea> Ideas { get; set; }

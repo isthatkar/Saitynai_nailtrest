@@ -1,6 +1,9 @@
-﻿namespace NailtrestApi.Data.Entities
+﻿using NailtrestApi.Auth.Model;
+using System.ComponentModel.DataAnnotations;
+
+namespace NailtrestApi.Data.Entities
 {
-    public class Idea
+    public class Idea : IUserOwnedResource
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -12,5 +15,10 @@
         public string Instruction { get; set; }
         public bool IsVerified { get; set; }
         public Collection Collection { get; set; }
+
+        [Required]
+        public string UserId { get; set; }
+
+        public ForumRestUser User { get; set; }
     }
 }

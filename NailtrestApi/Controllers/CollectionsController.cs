@@ -1,29 +1,36 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.JsonWebTokens;
+using NailtrestApi.Auth.Model;
 using NailtrestApi.Data;
 using NailtrestApi.Data.Dtos.Collections;
 using NailtrestApi.Data.Entities;
 using NailtrestApi.Data.Repositories;
+using System.Security.Claims;
 using System.Text.Json;
 
 namespace NailtrestApi.Controllers
 {
     [ApiController]
+    [Authorize(Roles = ForumRoles.User)]
     [Route("api/collections")]
     public class CollectionsController : ControllerBase
     {
         private readonly ICollectionsRepository _collectionRepository;
+        private readonly IAuthorizationService _authorizationService;
 
-        public CollectionsController(ICollectionsRepository collectionRepository)
+        public CollectionsController(ICollectionsRepository collectionRepository, IAuthorizationService authorizationService)
         {
            _collectionRepository = collectionRepository;
+            _authorizationService = authorizationService;
         }
 
-     //  [HttpGet]
+     /*//  [HttpGet]
         public async Task<IEnumerable<CollectionDto>> GetMany()
         {
             var collections = await _collectionRepository.GetManyAsync();
             return collections.Select(d => new CollectionDto(d.Id, d.Name, d.Description, d.CreatedDate));
-        }
+        }*/
 
         // /collections/pages?pageNumber=1&pageSize=5
         [HttpGet(Name = "GetCollections")]
@@ -75,7 +82,8 @@ namespace NailtrestApi.Controllers
             { 
                 Name = createCollectionDto.Name,
                 Description = createCollectionDto.Description,
-                CreatedDate = DateTime.UtcNow
+                CreatedDate = DateTime.UtcNow,
+                UserId = User.FindFirstValue(JwtRegisteredClaimNames.Sub)
             };
 
             await _collectionRepository.CreateAsync(collection);
@@ -96,6 +104,13 @@ namespace NailtrestApi.Controllers
                 return NotFound(); //404
             }
 
+            var authResult = await _authorizationService.AuthorizeAsync(User, collection, PolicyNames.ResourceOwner);
+
+            if (!authResult.Succeeded)
+            {
+                return Forbid(); //403
+            }
+
             collection.Name = updateCollectionDto.Name is null ? collection.Name : updateCollectionDto.Name;
             collection.Description = updateCollectionDto.Description is null ? collection.Description : updateCollectionDto.Description;
             await _collectionRepository.UpdateAsync(collection);
@@ -113,6 +128,13 @@ namespace NailtrestApi.Controllers
             if (collection == null)
             {
                 return NotFound(); //404
+            }
+
+            var authResult = await _authorizationService.AuthorizeAsync(User, collection, PolicyNames.ResourceOwner);
+
+            if (!authResult.Succeeded)
+            {
+                return Forbid(); //403
             }
 
             await _collectionRepository.DeleteAsync(collection);
