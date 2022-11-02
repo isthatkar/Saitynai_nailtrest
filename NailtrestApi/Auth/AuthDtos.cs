@@ -6,5 +6,6 @@ namespace NailtrestApi.Auth
     public record LoginUserDto(string UserName, string Password);
 
     public record UserDto(string Id, string UserName, string Email);
-    public record SuccessfulLoginDto(string AccessToken);
+    public record SuccessfulLoginDto(string AccessToken, string refreshToken);
+    public record TokenDto(string? AccessToken, string RefreshToken);
 }
