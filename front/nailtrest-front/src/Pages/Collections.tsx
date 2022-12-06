@@ -20,12 +20,14 @@ import DialogTitle from '@mui/material/DialogTitle';
 import EditCollectionDialog from '../Components/EditCollectionDialog';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
 
 const Collections = () => {
     const [allIdeas, setAllIdeas] = useState<Idea[]>([]);
     const [open, setOpen] = useState(false);
     const [show, setShow] = useState(false);
     const [isAdmin, setIsAdmin] = useState(false);
+    const navigate = useNavigate();
 
     const token = localStorage.getItem('accessToken');
     const id = localStorage.getItem('userId') as string;
@@ -92,6 +94,12 @@ const Collections = () => {
         }
         setOpen(false);
     };
+
+    const onView = (id: number) => {
+        console.log(`going to collection page ${id}`);
+        return navigate(`/collections/${id}`);
+    };
+
     return (
         <main>
             <ToastContainer />
@@ -121,7 +129,7 @@ const Collections = () => {
                     {allIdeas.map((card) => (
                         <Grid item xs={12} sm={6} md={4}>
                             <Card key="{card.id}" sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-                                <CardMedia component="img" image="https://source.unsplash.com/random/?nails" alt="random" />
+                                <CardMedia component="img" image="https://source.unsplash.com/random/?nailart" alt="random" />
                                 <CardContent sx={{ flexGrow: 1 }}>
                                     <Typography gutterBottom variant="h5" component="h2">
                                         {card.name}
@@ -129,7 +137,9 @@ const Collections = () => {
                                     <Typography>{card.description}</Typography>
                                 </CardContent>
                                 <CardActions>
-                                    <Button size="small">View ideas</Button>
+                                    <Button size="small" onClick={() => onView(card.id)}>
+                                        View ideas
+                                    </Button>
                                     {isAdmin || card.userId === id ? (
                                         <Stack direction="row" spacing={2}>
                                             <EditCollectionDialog card={card}> </EditCollectionDialog>

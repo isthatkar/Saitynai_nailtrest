@@ -39,7 +39,6 @@ const Register = () => {
         if (response.status == 201) {
             setRedir(true);
             return navigate('/login');
-            console.log('setting redir to troue');
         } else {
             setFailed(true);
         }

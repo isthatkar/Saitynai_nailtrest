@@ -12,6 +12,8 @@ import Profile from './Pages/Profile';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Collections from './Pages/Collections';
+import CollectionIdeas from './Pages/CollectionIdeas';
+import IdeaView from './Pages/IdeaView';
 
 function App() {
     return (
@@ -25,6 +27,8 @@ function App() {
                     <Route path="/ideas" element={<Ideas />} />
                     <Route path="/profile" element={<Profile />} />
                     <Route path="/collections" element={<Collections />} />
+                    <Route path="/collections/:id" element={<CollectionIdeas />}></Route>
+                    <Route path=":collectionid/idea/:id" element={<IdeaView />} />
                 </Routes>
             </BrowserRouter>
             <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
