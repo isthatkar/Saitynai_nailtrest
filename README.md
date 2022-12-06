@@ -12,37 +12,31 @@
     
     2.	Prisijungti prie sistemos.
     
+    3. Užsiregistruoti prie sistemos.
+    
     
   Registruotas naudotojas galės:
-  
-    1.	Prisijungti ir užsiregistruoti prie sistemos.
+      
+    1.	Atsijungti nuo sistemos.
     
-    2.	Atsijungti nuo sistemos.
+    2.	Pridėti, peržiūrėti, redaguoti, trinti savo idėjas. 
+            
+    3.	Pakomentuoti paskelbtas idėjas.
     
-    3.	Pridėti, peržiūrėti, redaguoti, trinti savo idėjas. 
+    4.	Ištrinti ar redaguoti savo komentarus.
         
-     4.	Paviešinti savo įkeltas idėjas. 
-     
-    5.	Peržiūrėti kitų narių paskelbtas idėjas.
-    
-    6.	Pakomentuoti kitų narių paskelbtas idėjas.
-    
-    7.	Ištrinti ar redaguoti savo komentarus.
-    
-    8.	Peržiūrėti kitų narių profilius.
-    
-    9.	Pridėti, peržiūrėti, redaguoti, trinti kolekciją. 
+    5.	Pridėti, peržiūrėti, redaguoti, trinti kolekciją. 
     
     
   Sistemos administratorius galės:
-  
-    1.	Patvirtinti ar idėja gali būti viešinama.
-    
-    2.	Peržiūrėti visas paviešintas idėjas.
-    
-    3.	Trinti netinkamas idėjas.
-    
-    4.	Trinti netinkamus komentarus.
+     
+     1. Viską ką gali registruotas ir neregistruotas naudotas.
+     
+     2. Trinti ir redaguoti kitų narių komentarus.
+     
+     3. Trinti ir redaguoti kitų narių kolekcijas.
+     
+     4. Trinti ir redaguoti kitų narių idėjas.
     
     
     
