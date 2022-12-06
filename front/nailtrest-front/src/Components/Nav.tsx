@@ -24,8 +24,7 @@ const Nav = () => {
     const Logout = (e: any): void => {
         e.preventDefault();
         localStorage.removeItem('accessToken');
-        window.location.reload();
-        navigate('/');
+        return navigate('/login');
     };
 
     const navigate = useNavigate();
@@ -53,7 +52,7 @@ const Nav = () => {
                 <ul className="navbar-nav mr-auto">
                     {token ? (
                         <li className="nav-item">
-                            <Link className="nav-link active" aria-current="page" to={'/login'}>
+                            <Link className="nav-link active" aria-current="page" to={'/collections'}>
                                 Collections
                             </Link>{' '}
                         </li>
@@ -62,7 +61,7 @@ const Nav = () => {
                     )}
                     {token ? (
                         <li className="nav-item">
-                            <Link className="nav-link active" aria-current="page" to={'/login'}>
+                            <Link className="nav-link active" aria-current="page" to={'/ideas'}>
                                 Ideas
                             </Link>{' '}
                         </li>
@@ -71,7 +70,7 @@ const Nav = () => {
                     )}
                     {token ? (
                         <li className="nav-item">
-                            <Link className="nav-link active" aria-current="page" to={'/login'}>
+                            <Link className="nav-link active" aria-current="page" to={'/profile'}>
                                 Profile
                             </Link>{' '}
                         </li>
@@ -89,7 +88,7 @@ const Nav = () => {
                     )}
                     {!token ? (
                         <li className="nav-item">
-                            <Link className="nav-link active" aria-current="page" to={'/login'}>
+                            <Link className="nav-link active" aria-current="page" to={'/register'}>
                                 Register
                             </Link>{' '}
                         </li>

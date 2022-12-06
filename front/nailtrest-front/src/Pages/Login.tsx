@@ -32,7 +32,10 @@ const Login = () => {
         if (response.status == 200) {
             const token = await response.json();
             localStorage.setItem('accessToken', token.accessToken);
-            return navigate('/home');
+            localStorage.setItem('refreshToken', token.refreshToken);
+            localStorage.setItem('roles', token.roles);
+            localStorage.setItem('userId', token.userId);
+            return navigate('/ideas');
         } else {
             setFailed(true);
         }
