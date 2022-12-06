@@ -30,16 +30,12 @@ const Login = () => {
         });
 
         if (response.status == 200) {
+            const token = await response.json();
+            localStorage.setItem('accessToken', token.accessToken);
             return navigate('/home');
         } else {
             setFailed(true);
         }
-
-        console.log(response);
-        const token = await response.json();
-        console.log(token);
-
-        localStorage.setItem('accessToken', token.accessToken);
     };
 
     return (
@@ -51,7 +47,8 @@ const Login = () => {
                 sm={4}
                 md={7}
                 sx={{
-                    backgroundImage: 'url(https://source.unsplash.com/random)',
+                    backgroundImage:
+                        'url(https://cdn.shopify.com/s/files/1/0050/3001/9162/products/holo-taco-multichrome-collection-brush-drips-1_31a9a269-be7f-4135-8c7e-c238e350eaf1.jpg?v=1646259850&width=1946)',
                     backgroundRepeat: 'no-repeat',
                     backgroundSize: 'cover',
                     backgroundPosition: 'center'
@@ -76,7 +73,7 @@ const Login = () => {
                     <Box component="form" noValidate onSubmit={onSubmit} sx={{ mt: 1 }}>
                         <TextField margin="normal" required fullWidth id="email" label="Email Address" name="email" autoComplete="email" autoFocus onChange={(e) => setUsername(e.target.value)} />
                         <TextField margin="normal" required fullWidth name="password" label="Password" type="password" id="password" onChange={(e) => setPassword(e.target.value)} />
-                        <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
+                        <Button type="submit" fullWidth variant="outlined" sx={{ mt: 3, mb: 2 }}>
                             Sign In
                         </Button>
                     </Box>

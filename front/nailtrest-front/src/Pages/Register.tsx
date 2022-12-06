@@ -74,7 +74,7 @@ const Register = () => {
                             <TextField required fullWidth name="password" label="Password" type="password" id="password" autoComplete="new-password" onChange={(e) => setPassword(e.target.value)} />
                         </Grid>
                     </Grid>
-                    <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
+                    <Button type="submit" fullWidth variant="outlined" sx={{ mt: 3, mb: 2 }}>
                         Sign Up
                     </Button>
                     <Grid container justifyContent="flex-end">
