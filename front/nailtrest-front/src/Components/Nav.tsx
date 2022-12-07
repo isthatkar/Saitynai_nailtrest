@@ -14,7 +14,7 @@ const Nav = () => {
             method: 'GET'
         });
         const roles = await data.json();
-        if (roles.includes('admin')) {
+        if (roles.includes('Admin')) {
             setIsAdmin(true);
         } else {
             setIsAdmin(false);

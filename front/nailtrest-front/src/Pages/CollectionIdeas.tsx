@@ -44,7 +44,7 @@ function CollectionIdeas() {
         const roles = localStorage.getItem('roles') as string;
 
         console.log(roles);
-        if (roles.includes('admin')) {
+        if (roles.includes('Admin')) {
             console.log('user is admin');
             setIsAdmin(true);
         } else {

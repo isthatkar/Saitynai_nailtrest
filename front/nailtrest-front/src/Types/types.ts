@@ -10,3 +10,10 @@ export interface Idea {
     instruction: string;
     userId: string;
 }
+
+export interface Comment {
+    content: string;
+    userId: string;
+    userName: string;
+    id: number;
+}

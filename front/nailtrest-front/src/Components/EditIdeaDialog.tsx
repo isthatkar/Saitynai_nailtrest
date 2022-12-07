@@ -69,6 +69,7 @@ const EditIdeaDialog = (props: any) => {
             toast.success('Successfuly edited idea !', {
                 position: toast.POSITION.TOP_RIGHT
             });
+            window.location.reload();
         } else {
             toast.error('Failed to edit idea!', {
                 position: toast.POSITION.TOP_RIGHT
