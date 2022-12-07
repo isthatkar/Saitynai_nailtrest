@@ -129,7 +129,7 @@ const Collections = () => {
                     {allIdeas.map((card) => (
                         <Grid item xs={12} sm={6} md={4}>
                             <Card key="{card.id}" sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-                                <CardMedia component="img" image="https://source.unsplash.com/random/?nailart" alt="random" />
+                                <CardMedia component="img" image="https://static.thenounproject.com/png/2717920-200.png" alt="random" />
                                 <CardContent sx={{ flexGrow: 1 }}>
                                     <Typography gutterBottom variant="h5" component="h2">
                                         {card.name}
