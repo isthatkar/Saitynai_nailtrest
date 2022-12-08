@@ -1,4 +1,5 @@
-import { Stack } from '@chakra-ui/react';
+import {  Stack } from '@chakra-ui/react';
+import { Box, Paper } from '@mui/material';
 import Typography from '@mui/material/Typography/Typography';
 import React from 'react';
 import { ReactComponent as ProfileSvg } from '../profile.svg';
@@ -9,16 +10,19 @@ const Profile = () => {
     const email = localStorage.getItem('email');
 
     return (
-        <Stack direction="column" justifyContent="center" alignItems="center" spacing={4}>
+        <Paper elevation={3}>
+<Stack direction="column"   justifyContent="flex-start" alignItems="center" spacing={12}>
             <ProfileSvg width={200}></ProfileSvg>
             <Typography variant="h4" component="h2">
-                {userName}
+                Email: {email}
             </Typography>
             <Typography variant="h4" component="h2">
-                {email}
+                Username: {userName}
             </Typography>
-            ;
+            <Box height={400}></Box>
         </Stack>
+        </Paper>
+
     );
 };
 

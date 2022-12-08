@@ -73,9 +73,9 @@ const Collections = () => {
         getIdeas();
     });
 
-    const onDelete = async (id: number) => {
+    const onDelete = async (ColId: number) => {
         var token = localStorage.getItem('accessToken');
-        const response = await fetch(`https://localhost:7054/api/collections/${id}`, {
+        const response = await fetch(`https://localhost:7054/api/collections/${ColId}`, {
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${token}`
@@ -95,9 +95,9 @@ const Collections = () => {
         setOpen(false);
     };
 
-    const onView = (id: number) => {
-        console.log(`going to collection page ${id}`);
-        return navigate(`/collections/${id}`);
+    const onView = (ColId: number) => {
+        console.log(`going to collection page ${ColId}`);
+        return navigate(`/collections/${ColId}`);
     };
 
     return (
