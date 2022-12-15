@@ -102,6 +102,8 @@ Diegimo diagramoje pavaizduota, kad kuriama internetinė aplikacija, aplikacijų
 
 ### GET collection
 
+Grąžina vieną specifinę kolekciją pagal id. 
+
 ##### Parametrai
 
 id - kolekcijos id
@@ -130,6 +132,8 @@ id - kolekcijos id
  ```
  
 #### GET collections
+
+Grąžina visas kolekcijas esančias duomenų bazėje.
 
 ##### Galimi atsako kodai
 
@@ -173,6 +177,8 @@ id - kolekcijos id
 
 #### POST collection
 
+Sukuria naują kolekciją.
+
 ##### Galimi atsako kodai
 
 ```
@@ -206,6 +212,8 @@ Body:
 
 #### DEL collection
 
+Ištrina specifinę kolekciją, nurodytą pagal id.
+
 ##### Parametrai
 
 id - kolekcijos id
@@ -227,6 +235,8 @@ id - kolekcijos id
 {}
 
 #### PUT collection
+
+Redaguoja specifinę kolekciją nurodytą pagal id.
 
 ##### Galimi atsako kodai
 
@@ -262,6 +272,8 @@ Body:
 
 
 #### GET all collection ideas
+
+Grąžina visas specifinės kolekcijos, nurodytos pagal id, idėjas.
 
 ##### Parametrai
 
@@ -312,6 +324,8 @@ id - kolekcijos id
 
 #### GET ideas
 
+Grąžina visas visų kolekcijų idėjas.
+
 ##### Galimi atsako kodai
 
 ```
@@ -358,6 +372,8 @@ id - kolekcijos id
 
 #### GET idea
 
+Grąžina vieną specifinės kolekcijos nurodytą pagal kolekcijos id idėją.
+
 ##### Parametrai
 
 collectionId - kolekcijos id
@@ -402,6 +418,8 @@ id - idėjos id
 ```
 
 #### POST idea
+
+Sukuria naują idėją kolekcijoje.
 
 ##### Parametrai
 
@@ -457,6 +475,8 @@ Body:
 
 #### DEL idea
 
+Ištrina specifinę idėją.
+
 ##### Parametrai
 
 collectionId - kolekcijos id
@@ -480,6 +500,8 @@ id - idėjos id
 {}
 
 #### PUT idea
+
+Redaguoja konkrečią idėją.
 
 ##### Parametrai
 
@@ -525,6 +547,8 @@ id - idėjos id
 
 #### GET all idea comments
 
+Grąžina konkrečios idėjos visus komentarus.
+
 ##### Parametrai
 
 ideaId - idėjos id
@@ -556,6 +580,8 @@ ideaId - idėjos id
 ```
 
 #### GET comment
+
+Grąžina vieną konkretų idėjos komentarą.
 
 ##### Parametrai
 
@@ -603,6 +629,7 @@ id - komentaro id
 
 #### POST comment
 
+Sukuria naują idėjos komentarą.
 
 ##### Parametrai
 
@@ -646,6 +673,8 @@ ideaId - idėjos id
 
 #### DEL comment
 
+Ištrina komentarą.
+
 ##### Parametrai
 
 ideaId - idėjos id
@@ -669,6 +698,8 @@ id - komentaro id
 {}
 
 #### PUT comment
+
+Redaguoja specifinį komentarą.
 
 ##### Parametrai
 
