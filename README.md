@@ -212,9 +212,11 @@ id - kolekcijos id
 
 ##### Galimi atsako kodai
 
+```
 401 - unauthorized
 404 - not found 
 204 - no content 
+```
 
 ##### Užklausos pavyzdys
 
@@ -398,6 +400,7 @@ id - kolekcijos id
 ##### Parametrai
 
 collectionId - kolekcijos id
+
 id - idėjos id
 
 ##### Galimi atsako kodai
@@ -520,6 +523,7 @@ id - idėjos id
 ##### Parametrai
 
 collectionId - kolekcijos id
+
 id - idėjos id
 
 ##### Galimi atsako kodai
@@ -595,6 +599,7 @@ ideaId - idėjos id
 ##### Parametrai
 
 ideaId - idėjos id
+
 id - komentaro id
 
 ##### Galimi atsako kodai
@@ -683,6 +688,7 @@ ideaId - idėjos id
 ##### Parametrai
 
 ideaId - idėjos id
+
 id - komentaro id
 
 ##### Galimi atsako kodai
@@ -706,6 +712,7 @@ id - komentaro id
 ##### Parametrai
 
 ideaId - idėjos id
+
 id - komentaro id
 
 ##### Galimi atsako kodai
@@ -747,3 +754,4 @@ id - komentaro id
 
 ## Išvados
 
+Modulio metu buvo sukurta veikianti ir savo funkcijas atliekanti nagų dailės mėgėjams skirta sistema. Buvo pagilintos ASP.NET ir React.Js žinios, susipažinta su REST API kūrimo specifika ir procesu. Implementuojant sistemos autorizaciją ir autentifikaciją buvo gilinamasi į JWT tokenų naudojimą ir pritaikymą kuriamai sistemai. Pagerintos web dizaino žinios. 
