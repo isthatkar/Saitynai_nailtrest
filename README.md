@@ -108,9 +108,11 @@ id - kolekcijos id
 
 ##### Galimi atsako kodai
 
+```
 404 - not found 
 401 - unauthorized
-200 -OK 
+200 -OK
+``` 
 
 ##### Užklausos pavyzdys
 
@@ -131,9 +133,11 @@ id - kolekcijos id
 
 ##### Galimi atsako kodai
 
+```
 404 - not found 
 401 - unauthorized
 200 -OK 
+```
 
 ##### Užklausos pavyzdys
 
@@ -171,8 +175,10 @@ id - kolekcijos id
 
 ##### Galimi atsako kodai
 
+```
 401 - unauthorized
-201 - Created 
+201 - Created
+``` 
 
 ##### Užklausos pavyzdys
 
@@ -222,9 +228,11 @@ id - kolekcijos id
 
 ##### Galimi atsako kodai
 
+```
 401 - unauthorized
 404 - not found 
 200 - OK
+```
 
 ##### Užklausos pavyzdys
 
@@ -253,46 +261,302 @@ Body:
 
 #### GET all collection ideas
 
+##### Parametrai
+
+id - kolekcijos id
+
 ##### Galimi atsako kodai
+
+```
+401 - unauthorized
+404 - not found
+200 - OK 
+``` 
+
 ##### Užklausos pavyzdys
+
+`https://nailtrestapi.azurewebsites.net/api/collections/4/ideas`
+
 ##### Atsakymas į pavyzdinę užklausą
 
+```
+[
+    {
+        "id": 16,
+        "name": "Black nail faces",
+        "description": "Cool looking nail art",
+        "createdDate": "2022-12-08T18:26:49.7103519",
+        "imageUrl": "https://i.pinimg.com/564x/99/ce/ab/99ceab98212a1fc4c4d304e91bf46f6b.jpg",
+        "complexity": "Easy",
+        "requiredMeans": "Black nail polish",
+        "instruction": "Paint the nails as in the photo :)",
+        "isVerified": false,
+        "userId": "b2c8d275-8def-4bd1-b1fc-5921fb412199"
+    },
+    {
+        "id": 17,
+        "name": "Black smoky nails",
+        "description": "Smoke nails",
+        "createdDate": "2022-12-08T18:27:31.1892738",
+        "imageUrl": "https://i.pinimg.com/564x/34/15/ac/3415ac784144d25bc12f03b845b409f7.jpg",
+        "complexity": "Easy",
+        "requiredMeans": "Nail polish",
+        "instruction": "Paint the nails as in the photo :)",
+        "isVerified": false,
+        "userId": "b2c8d275-8def-4bd1-b1fc-5921fb412199"
+    }
+]
+```
 
 #### GET ideas
 
 ##### Galimi atsako kodai
+
+```
+401 - unauthorized
+200 - OK 
+``` 
+
 ##### Užklausos pavyzdys
+
+`https://nailtrestapi.azurewebsites.net/api/collections/4/ideas`
+
 ##### Atsakymas į pavyzdinę užklausą
 
+```
+[
+    {
+        "id": 2,
+        "name": "Minimal nails ",
+        "description": "Suitable for summer!",
+        "createdDate": "2022-12-07T13:58:26.8404794",
+        "imageUrl": "https://i.pinimg.com/564x/5a/13/55/5a13557e9dd072e9e15a38f994409da4.jpg",
+        "complexity": "Easy",
+        "requiredMeans": "Nail polish :)",
+        "instruction": "Paint nails by the picture",
+        "isVerified": false,
+        "collectionId": null,
+        "userId": "d3240b9c-fcd4-42fe-bfa6-b8e65b0317e4"
+    },
+    {
+        "id": 14,
+        "name": "Holiday nails",
+        "description": "Simple gold holiday nails",
+        "createdDate": "2022-12-08T18:24:11.3988578",
+        "imageUrl": "https://i.pinimg.com/564x/fb/92/4a/fb924a9c2cb0e55b1236a577ddbe995f.jpg",
+        "complexity": "Normal",
+        "requiredMeans": "Nail polish",
+        "instruction": "Paint the nails as in the photo :)",
+        "isVerified": false,
+        "collectionId": null,
+        "userId": "b2c8d275-8def-4bd1-b1fc-5921fb412199"
+    },
+    {
+        "id": 15,
+        "name": "Festive sparkly nail art",
+        "description": "Lots of glitter",
+        "createdDate": "2022-12-08T18:25:35.9527179",
+        "imageUrl": "https://i.pinimg.com/564x/bb/af/0c/bbaf0c65af0d2aa03eb99e55e66f6ee5.jpg",
+        "complexity": "Normal",
+        "requiredMeans": "Nail polish and glitter",
+        "instruction": "Paint the nails as in the photo :)",
+        "isVerified": false,
+        "collectionId": null,
+        "userId": "b2c8d275-8def-4bd1-b1fc-5921fb412199"
+    },
+    {
+        "id": 16,
+        "name": "Black nail faces",
+        "description": "Cool looking nail art",
+        "createdDate": "2022-12-08T18:26:49.7103519",
+        "imageUrl": "https://i.pinimg.com/564x/99/ce/ab/99ceab98212a1fc4c4d304e91bf46f6b.jpg",
+        "complexity": "Easy",
+        "requiredMeans": "Black nail polish",
+        "instruction": "Paint the nails as in the photo :)",
+        "isVerified": false,
+        "collectionId": null,
+        "userId": "b2c8d275-8def-4bd1-b1fc-5921fb412199"
+    },
+    {
+        "id": 19,
+        "name": "Black Halloween nails",
+        "description": "Ghosts!",
+        "createdDate": "2022-12-08T18:29:35.0459871",
+        "imageUrl": "https://i.pinimg.com/564x/d8/ab/d0/d8abd0cdf49a8fcaae565643af908acf.jpg",
+        "complexity": "Easy",
+        "requiredMeans": "Black nail polish",
+        "instruction": "Pa",
+        "isVerified": false,
+        "collectionId": null,
+        "userId": "b2c8d275-8def-4bd1-b1fc-5921fb412199"
+    }
+]
+```
 
 #### GET idea
 
+##### Parametrai
+
+collectionId - kolekcijos id
+id - idėjos id
+
 ##### Galimi atsako kodai
+
+```
+401 - unauthorized
+404 - not found
+200 - OK 
+``` 
+
 ##### Užklausos pavyzdys
+
+`https://nailtrestapi.azurewebsites.net/api/collections/6/ideas/16`
+
 ##### Atsakymas į pavyzdinę užklausą
 
+```
+{
+    "id": 16,
+    "name": "Black nail faces",
+    "description": "Cool looking nail art",
+    "createdDate": "2022-12-08T18:26:49.7103519",
+    "imageUrl": "https://i.pinimg.com/564x/99/ce/ab/99ceab98212a1fc4c4d304e91bf46f6b.jpg",
+    "complexity": "Easy",
+    "requiredMeans": "Black nail polish",
+    "instruction": "Paint the nails as in the photo :)",
+    "isVerified": false,
+    "collectionId": {
+        "id": 6,
+        "name": "Black nails",
+        "description": "Black is the new black",
+        "createdDate": "2022-12-08T18:26:13.7397523",
+        "userId": "b2c8d275-8def-4bd1-b1fc-5921fb412199",
+        "user": null
+    },
+    "userId": "b2c8d275-8def-4bd1-b1fc-5921fb412199"
+}
+```
 
 #### POST idea
 
+##### Parametrai
+
+collectionId - kolekcijos id
+
 ##### Galimi atsako kodai
+
+```
+401 - unauthorized
+404 - not found
+201 - created 
+``` 
+
 ##### Užklausos pavyzdys
+
+`https://nailtrestapi.azurewebsites.net/api/collections/6/ideas`
+
+Body:
+```
+{
+        "name": "Funky nails",
+        "description": "Funny nails",
+        "imageUrl": "https://qph.cf2.quoracdn.net/main-qimg-af6174d19586c0ef303281a939ab05ee-lq",
+        "complexity": "Normal",
+        "requiredMeans": "Red nail polish, diamonds, nail glue",
+        "instruction": "Paint nails red, but leave a space at the top right next to the cuticle. There you should glue the diamond "
+}
+```
+
 ##### Atsakymas į pavyzdinę užklausą
 
+```
+{
+    "id": 22,
+    "name": "Funky nails",
+    "description": "Funny nails",
+    "createdDate": "2022-12-15T17:54:19.9275365Z",
+    "imageUrl": "https://qph.cf2.quoracdn.net/main-qimg-af6174d19586c0ef303281a939ab05ee-lq",
+    "complexity": "Normal",
+    "requiredMeans": "Red nail polish, diamonds, nail glue",
+    "instruction": "Paint nails red, but leave a space at the top right next to the cuticle. There you should glue the diamond ",
+    "isVerified": false,
+    "collectionId": {
+        "id": 6,
+        "name": "Black nails",
+        "description": "Black is the new black",
+        "createdDate": "2022-12-08T18:26:13.7397523",
+        "userId": "b2c8d275-8def-4bd1-b1fc-5921fb412199",
+    },
+    "userId": "b2c8d275-8def-4bd1-b1fc-5921fb412199"
+}
+```
 
 #### DEL idea
 
+##### Parametrai
+
+collectionId - kolekcijos id
+
+id - idėjos id
+
 ##### Galimi atsako kodai
+
+```
+401 - unauthorized
+404 - not found
+204 - no content 
+``` 
+
 ##### Užklausos pavyzdys
+
+`https://nailtrestapi.azurewebsites.net/api/collections/6/ideas/22`
+
 ##### Atsakymas į pavyzdinę užklausą
 
+-
 
 #### PUT idea
 
+##### Parametrai
+
+collectionId - kolekcijos id
+id - idėjos id
+
 ##### Galimi atsako kodai
+
+```
+401 - unauthorized
+404 - not found
+200 - OK 
+``` 
+
 ##### Užklausos pavyzdys
+
+`https://nailtrestapi.azurewebsites.net/api/collections/6/ideas/17`
+
 ##### Atsakymas į pavyzdinę užklausą
 
-
+```
+{
+    "id": 17,
+    "name": "Naujas pavadinimas",
+    "description": "Smoky nails",
+    "createdDate": "2022-12-08T18:27:31.1892738",
+    "imageUrl": "https://i.pinimg.com/564x/34/15/ac/3415ac784144d25bc12f03b845b409f7.jpg",
+    "complexity": "Easy",
+    "requiredMeans": "Nail polish",
+    "instruction": "Paint the nails as in the photo :)",
+    "isVerified": false,
+    "collectionId": {
+        "id": 6,
+        "name": "Black nails",
+        "description": "Black is the new black",
+        "createdDate": "2022-12-08T18:26:13.7397523",
+        "userId": "b2c8d275-8def-4bd1-b1fc-5921fb412199",
+    },
+    "userId": "b2c8d275-8def-4bd1-b1fc-5921fb412199"
+}
+```
 
 #### GET all idea comments
 
@@ -329,8 +593,5 @@ Body:
 ##### Atsakymas į pavyzdinę užklausą
 
 
-
-galimus atsako kodus (response code),     
-panaudojimo pavyzdžius (užklausa, atsakymas);
 
 ## Išvados
