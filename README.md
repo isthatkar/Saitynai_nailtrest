@@ -117,49 +117,138 @@ id - kolekcijos id
 `https://nailtrestapi.azurewebsites.net/api/collections/2`
 
 ##### Atsakymas į pavyzdinę užklausą
-
-`{
-
+ ```
+{
     "id": 2,
-    
     "name": "Simple minimalistic",
-    
     "description": "Simple minimalistic nail ideas",
-    
     "createdDate": "2022-12-07T13:57:43.6758309",
-    
     "userId": "d3240b9c-fcd4-42fe-bfa6-b8e65b0317e4"
-    
-}`
-
+}
+ ```
+ 
 #### GET collections
 
 ##### Galimi atsako kodai
+
+404 - not found 
+401 - unauthorized
+200 -OK 
+
 ##### Užklausos pavyzdys
+
+`https://nailtrestapi.azurewebsites.net/api/collections`
+
 ##### Atsakymas į pavyzdinę užklausą
 
+```
+[
+    {
+        "id": 2,
+        "name": "Simple minimalistic",
+        "description": "Simple minimalistic nail ideas",
+        "createdDate": "2022-12-07T13:57:43.6758309",
+        "userId": "d3240b9c-fcd4-42fe-bfa6-b8e65b0317e4"
+    },
+    {
+        "id": 5,
+        "name": "Christmas nails",
+        "description": "Ideas for christmas season!!",
+        "createdDate": "2022-12-08T18:21:34.8974878",
+        "userId": "b2c8d275-8def-4bd1-b1fc-5921fb412199"
+    },
+    {
+        "id": 6,
+        "name": "Black nails",
+        "description": "Black is the new black",
+        "createdDate": "2022-12-08T18:26:13.7397523",
+        "userId": "b2c8d275-8def-4bd1-b1fc-5921fb412199"
+    }
+]
+```
 
 #### POST collection
 
 ##### Galimi atsako kodai
+
+401 - unauthorized
+201 - Created 
+
 ##### Užklausos pavyzdys
+
+`https://localhost:7054/api/collections`
+
+Body:
+```
+{
+    "Name": "Kaledooooos jau tuoj!!!",
+    "Description": "Su šventėm kas skaito :)"
+}
+```
+
 ##### Atsakymas į pavyzdinę užklausą
 
+```
+{
+    "id": 9,
+    "name": "Kaledooooos jau tuoj!!!",
+    "description": "Su šventėm kas skaito :)",
+    "createdDate": "2022-12-15T17:33:04.8249079Z",
+    "userId": "b2c8d275-8def-4bd1-b1fc-5921fbsfs12199"
+}
+```
 
 #### DEL collection
 
+##### Parametrai
+
+id - kolekcijos id
+
 ##### Galimi atsako kodai
+
+401 - unauthorized
+404 - not found 
+204 - no content 
+
 ##### Užklausos pavyzdys
+
+`https://nailtrestapi.azurewebsites.net/api/collections/10`
+
 ##### Atsakymas į pavyzdinę užklausą
 
+-
 
 #### PUT collection
 
 ##### Galimi atsako kodai
+
+401 - unauthorized
+404 - not found 
+200 - OK
+
 ##### Užklausos pavyzdys
+
+`https://nailtrestapi.azurewebsites.net/api/collections/10`
+
+Body:
+
+```
+{
+    "description": "Naujas aprasymas "
+}
+```
+
 ##### Atsakymas į pavyzdinę užklausą
 
-
+```
+{
+    "id": 9,
+    "name": "Kaledooooos jau tuoj!!!",
+    "description": "Naujas aprasymas ",
+    "createdDate": "2022-12-15T17:33:04.8249079",
+    "userId": "b2c8d275-8def-4bd1-b1fc-5921fb412ss199"
+}
+```
 
 
 #### GET all collection ideas
