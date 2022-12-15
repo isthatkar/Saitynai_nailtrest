@@ -222,7 +222,7 @@ id - kolekcijos id
 
 ##### Atsakymas į pavyzdinę užklausą
 
--
+{}
 
 #### PUT collection
 
@@ -513,7 +513,7 @@ id - idėjos id
 
 ##### Atsakymas į pavyzdinę užklausą
 
--
+{}
 
 #### PUT idea
 
@@ -560,38 +560,190 @@ id - idėjos id
 
 #### GET all idea comments
 
+##### Parametrai
+
+ideaId - idėjos id
+
 ##### Galimi atsako kodai
+
+```
+401 - unauthorized
+404 - not found
+200 - OK 
+``` 
+
 ##### Užklausos pavyzdys
+
+`https://nailtrestapi.azurewebsites.net/api/ideas/1/comments`
+
 ##### Atsakymas į pavyzdinę užklausą
 
+```
+[
+    {
+        "id": 24,
+        "content": "Grazu!! ",
+        "createdDate": "2022-12-15T20:06:46.9489816",
+        "userId": "b2c8d275-8def-4bd1-b1fc-5921fb412199",
+        "userName": "test"
+    }
+]
+```
 
 #### GET comment
 
+##### Parametrai
+
+ideaId - idėjos id
+id - komentaro id
+
 ##### Galimi atsako kodai
+
+```
+401 - unauthorized
+404 - not found
+200 - OK 
+``` 
+
 ##### Užklausos pavyzdys
+
+`https://nailtrestapi.azurewebsites.net/api/ideas/1/comments`
+
 ##### Atsakymas į pavyzdinę užklausą
 
+```
+{
+    "id": 24,
+    "content": "Grazu!! ",
+    "createdDate": "2022-12-15T20:06:46.9489816",
+    "idea": {
+        "id": 17,
+        "name": "Naujas pavadinimas",
+        "description": "Smoky nails",
+        "createdDate": "2022-12-08T18:27:31.1892738",
+        "imageUrl": "https://i.pinimg.com/564x/34/15/ac/3415ac784144d25bc12f03b845b409f7.jpg",
+        "complexity": "Easy",
+        "requiredMeans": "Nail polish",
+        "instruction": "Paint the nails as in the photo :)",
+        "isVerified": false,
+        "collection": null,
+        "userId": "b2c8d275-8def-4bd1-b1fc-5921fb412199",
+        "user": null
+    },
+    "userId": "b2c8d275-8def-4bd1-b1fc-5921fb412199",
+    "userName": "test"
+}
+```
 
 #### POST comment
 
+
+##### Parametrai
+
+ideaId - idėjos id
+
 ##### Galimi atsako kodai
+
+```
+401 - unauthorized
+201 - created 
+``` 
+
 ##### Užklausos pavyzdys
+
+`https://nailtrestapi.azurewebsites.net/api/ideas/1/comments`
+
 ##### Atsakymas į pavyzdinę užklausą
 
+```
+{
+    "id": 24,
+    "content": "Grazu!! ",
+    "createdDate": "2022-12-15T20:06:46.9489816+02:00",
+    "idea": {
+        "id": 17,
+        "name": "Naujas pavadinimas",
+        "description": "Smoky nails",
+        "createdDate": "2022-12-08T18:27:31.1892738",
+        "imageUrl": "https://i.pinimg.com/564x/34/15/ac/3415ac784144d25bc12f03b845b409f7.jpg",
+        "complexity": "Easy",
+        "requiredMeans": "Nail polish",
+        "instruction": "Paint the nails as in the photo :)",
+        "isVerified": false,
+        "collection": null,
+        "userId": "b2c8d275-8def-4bd1-b1fc-5921fb412199",
+    },
+    "userId": "b2c8d275-8def-4bd1-b1fc-5921fb412199",
+    "userName": "test"
+}
+```
 
 #### DEL comment
 
+##### Parametrai
+
+ideaId - idėjos id
+id - komentaro id
+
 ##### Galimi atsako kodai
+
+```
+401 - unauthorized
+404 - not found
+204 - no content 
+``` 
+
 ##### Užklausos pavyzdys
+
+`https://nailtrestapi.azurewebsites.net/api/ideas/1/comments`
+
 ##### Atsakymas į pavyzdinę užklausą
 
+{}
 
 #### PUT comment
 
+##### Parametrai
+
+ideaId - idėjos id
+id - komentaro id
+
 ##### Galimi atsako kodai
+
+```
+401 - unauthorized
+404 - not found
+200 - OK 
+``` 
+
 ##### Užklausos pavyzdys
+
+`https://nailtrestapi.azurewebsites.net/api/ideas/1/comments`
+
 ##### Atsakymas į pavyzdinę užklausą
 
-
+```
+{
+    "id": 24,
+    "content": "Labai puiki ideja!",
+    "createdDate": "2022-12-15T20:06:46.9489816",
+    "idea": {
+        "id": 17,
+        "name": "Naujas pavadinimas",
+        "description": "Smoky nails",
+        "createdDate": "2022-12-08T18:27:31.1892738",
+        "imageUrl": "https://i.pinimg.com/564x/34/15/ac/3415ac784144d25bc12f03b845b409f7.jpg",
+        "complexity": "Easy",
+        "requiredMeans": "Nail polish",
+        "instruction": "Paint the nails as in the photo :)",
+        "isVerified": false,
+        "collection": null,
+        "userId": "b2c8d275-8def-4bd1-b1fc-5921fb412199",
+    },
+    "userId": "b2c8d275-8def-4bd1-b1fc-5921fb412199",
+    "userName": "test"
+}
+```
 
 ## Išvados
+
