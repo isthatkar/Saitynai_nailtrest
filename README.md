@@ -114,16 +114,22 @@ id - kolekcijos id
 
 ##### Užklausos pavyzdys
 
-https://nailtrestapi.azurewebsites.net/api/collections/2
+`https://nailtrestapi.azurewebsites.net/api/collections/2`
 
 ##### Atsakymas į pavyzdinę užklausą
 
 `{
+
     "id": 2,
+    
     "name": "Simple minimalistic",
+    
     "description": "Simple minimalistic nail ideas",
+    
     "createdDate": "2022-12-07T13:57:43.6758309",
+    
     "userId": "d3240b9c-fcd4-42fe-bfa6-b8e65b0317e4"
+    
 }`
 
 #### GET collections
