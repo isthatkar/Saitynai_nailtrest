@@ -52,7 +52,7 @@
 
 ## Sistemos architektūra 
   
-Diegimo diagramoje pavaizduota, kad kuriama internetinė aplikacija, aplikacijų programavimo sąsaja ir duomenų bazė bus talpinami tame pačiame Azure serveryje.  Aplikacija su API komunikuos per HTTP. Taip pat  API komunikacija su duomenų baze vyks naudojant ORM sąsają. Naudotojo įrenginio naršyklė taip pat komunikuos per HTTP protokolą. 
+Diegimo diagramoje pavaizduota, kad kuriama internetinė aplikacija, aplikacijų programavimo sąsaja ir duomenų bazė bus talpinami tame pačiame Azure serveryje. Taip pat  API komunikacija su duomenų baze vyks naudojant ORM sąsają. Naudotojo įrenginio naršyklė su API ir web aplikacija komunikuos per HTTPS protokolą. 
 
 ![image](https://user-images.githubusercontent.com/44231038/207938381-cff44948-7c41-4ee9-a73a-cda7f09a7f38.png)
 
