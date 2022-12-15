@@ -352,45 +352,6 @@ id - kolekcijos id
         "isVerified": false,
         "collectionId": null,
         "userId": "b2c8d275-8def-4bd1-b1fc-5921fb412199"
-    },
-    {
-        "id": 15,
-        "name": "Festive sparkly nail art",
-        "description": "Lots of glitter",
-        "createdDate": "2022-12-08T18:25:35.9527179",
-        "imageUrl": "https://i.pinimg.com/564x/bb/af/0c/bbaf0c65af0d2aa03eb99e55e66f6ee5.jpg",
-        "complexity": "Normal",
-        "requiredMeans": "Nail polish and glitter",
-        "instruction": "Paint the nails as in the photo :)",
-        "isVerified": false,
-        "collectionId": null,
-        "userId": "b2c8d275-8def-4bd1-b1fc-5921fb412199"
-    },
-    {
-        "id": 16,
-        "name": "Black nail faces",
-        "description": "Cool looking nail art",
-        "createdDate": "2022-12-08T18:26:49.7103519",
-        "imageUrl": "https://i.pinimg.com/564x/99/ce/ab/99ceab98212a1fc4c4d304e91bf46f6b.jpg",
-        "complexity": "Easy",
-        "requiredMeans": "Black nail polish",
-        "instruction": "Paint the nails as in the photo :)",
-        "isVerified": false,
-        "collectionId": null,
-        "userId": "b2c8d275-8def-4bd1-b1fc-5921fb412199"
-    },
-    {
-        "id": 19,
-        "name": "Black Halloween nails",
-        "description": "Ghosts!",
-        "createdDate": "2022-12-08T18:29:35.0459871",
-        "imageUrl": "https://i.pinimg.com/564x/d8/ab/d0/d8abd0cdf49a8fcaae565643af908acf.jpg",
-        "complexity": "Easy",
-        "requiredMeans": "Black nail polish",
-        "instruction": "Pa",
-        "isVerified": false,
-        "collectionId": null,
-        "userId": "b2c8d275-8def-4bd1-b1fc-5921fb412199"
     }
 ]
 ```
